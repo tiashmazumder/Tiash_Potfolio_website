@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tiash — Data Analytics Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="brand" id="brandHome" title="Go Home">
+      <span class="logo">📊</span>
+      <div class="brandText">
+        <div class="brandName" id="profileName">Tiash Mazumder</div>
+        <div class="brandSub" id="profileHeadline">Full-Stack Data Analytics Portfolio</div>
+      </div>
+    </div>
+
+    <div class="searchWrap">
+      <input id="searchInput" class="search" type="text" placeholder="Search projects, skills… (Ctrl/⌘ + K)" />
+      <button class="chip" id="clearSearchBtn">Clear</button>
+    </div>
+
+    <div class="topActions">
+      <button class="btn ghost" id="themeBtn">🌗 Theme</button>
+      <button class="btn ghost" id="helpBtn">❔ Help</button>
+      <button class="btn" id="contactBtn">Contact</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sideSection">
+        <div class="sideTitle">Navigation</div>
+
+        <button class="navBtn active" data-page="home">🏠 Home</button>
+        <button class="navBtn" data-page="projects">📁 Projects</button>
+        <button class="navBtn" data-page="skills">🧠 Skills</button>
+        <button class="navBtn" data-page="about">👤 About</button>
+      </div>
+
+      <div class="sideSection">
+        <div class="sideTitle">Actions</div>
+        <button class="btn full" id="downloadResumeBtn">⬇️ Download Resume (placeholder)</button>
+        <button class="btn full ghost" id="scrollTopBtn">⬆️ Back to Top</button>
+      </div>
+
+      <div class="sideFooter">
+        <div class="muted">Tip: Use the Projects page to browse Excel + SQL.</div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+      <!-- HOME PAGE -->
+      <section class="page active" id="page-home">
+        <div class="hero">
+          <div class="heroLeft">
+            <div class="badge">🚀 Aspiring Full-Stack Data Analyst</div>
+
+            <h1 class="h1">Full-Stack Data Analyst (Aspiring)</h1>
+            <p class="lead" id="profileSummary">
+              Loading profile…
+            </p>
+
+            <div class="heroBtns">
+              <button class="btn" id="btnExploreProjects">Explore Projects</button>
+              <button class="btn ghost" id="btnOpenLinkedIn">LinkedIn</button>
+              <button class="btn ghost" id="btnOpenGitHub">GitHub</button>
+            </div>
+
+            <div class="stats">
+              <div class="statCard">
+                <div class="statLabel">Core Skills</div>
+                <div class="statValue" id="coreSkillsText">Excel • SQL • Python • Power BI</div>
+              </div>
+              <div class="statCard">
+                <div class="statLabel">Current Focus</div>
+                <div class="statValue" id="currentFocusText">SQL Projects</div>
+              </div>
+              <div class="statCard">
+                <div class="statLabel">Featured</div>
+                <div class="statValue" id="featuredText">Excel Dashboard</div>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- FEATURED PROJECT CARD (AUTO) -->
+            <div class="card hoverPop" id="featuredCard">
+              <div class="cardTitle" id="featuredTitle">⭐ Featured Project</div>
+              <p class="muted" id="featuredDesc">Loading…</p>
+
+              <div class="grid2" style="margin-top:12px;">
+                <div>
+                  <img id="featuredImg" class="previewImage" alt="Project preview" />
+                </div>
+
+                <div>
+                  <div class="muted" style="font-weight:800; margin-bottom:8px;">Highlights</div>
+                  <ul class="list compact" id="featuredHighlights"></ul>
+
+                  <div class="row" style="margin-top:12px;">
+                    <button class="btn" id="btnFeaturedPreview">Preview</button>
+                    <button class="btn ghost" id="btnFeaturedGitHub">GitHub</button>
+                    <button class="btn ghost" id="btnFeaturedOpen">Open Project</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS PAGE -->
+      <section class="page" id="page-projects">
+        <div class="pageHeader">
+          <h2>📁 Projects</h2>
+        </div>
+
+        <!-- PROJECTS: Excel -->
+        <div class="sectionCard">
+          <button class="sectionHeader" data-toggle="excelProjects">
+            <span>📊 Excel Projects</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="sectionBody" id="excelProjects"></div>
+        </div>
+
+        <!-- PROJECTS: SQL -->
+        <div class="sectionCard" style="margin-top:12px;">
+          <button class="sectionHeader" data-toggle="sqlProjects">
+            <span>🗄️ SQL Projects</span>
+            <span class="chev">▾</span>
+          </button>
+          <div class="sectionBody" id="sqlProjects"></div>
+        </div>
+      </section>
+
+      <!-- SKILLS PAGE -->
+      <section class="page" id="page-skills">
+        <div class="pageHeader">
+          <h2>🧠 Skills</h2>
+          <p class="muted">Click a skill to see an interview-ready line.</p>
+        </div>
+
+        <div class="card hoverPop">
+          <div class="chipGrid" id="skillChips"></div>
+          <div class="skillInfo" id="skillInfo">Click a skill chip.</div>
+        </div>
+      </section>
+
+      <!-- ABOUT PAGE -->
+      <section class="page" id="page-about">
+        <div class="pageHeader">
+          <h2>👤 About</h2>
+          <p class="muted">Short and recruiter-friendly.</p>
+        </div>
+
+        <div class="grid2">
+          <div class="card hoverPop">
+            <div class="cardTitle">Summary</div>
+            <p id="aboutSummary">Loading…</p>
+            <div class="row">
+              <button class="btn ghost" id="copyAboutBtn">📋 Copy Summary</button>
+              <button class="btn ghost" id="openContactBtn2">Contact</button>
+            </div>
+          </div>
+
+          <div class="card hoverPop">
+            <div class="cardTitle">Links</div>
+            <ul class="list">
+              <li><a class="link" id="aboutGitHub" target="_blank">GitHub</a></li>
+              <li><a class="link" id="aboutLinkedIn" target="_blank">LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="muted">© <span id="year"></span> Tiash • Built with HTML/CSS/JS</div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modalOverlay" id="modalOverlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="modalTop">
+        <div class="modalTitle" id="modalTitle">Modal</div>
+        <button class="chip" id="modalCloseBtn">✖ Close</button>
+      </div>
+      <div class="modalBody" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
